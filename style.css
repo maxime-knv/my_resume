@@ -1,0 +1,186 @@
+/* Style global */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #f4f4f4 0%, #e0e0e0 100%);
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    position: relative;
+    overflow: auto;
+  }
+  
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  /* Sidebar (cv) */
+  .sidebar {
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar img.cv {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Contenu principal */
+  .content {
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .photo:hover {
+    transform: scale(1.05);
+  }
+  
+  header {
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+  }
+  
+  header p {
+    margin: 0.5rem 0;
+  }
+  
+  /* Contact */
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .contact div {
+    text-align: left;
+    margin: 0.5rem 1rem;
+    width: 150%;
+    max-width: 250px; /* Limite la largeur des éléments */
+  }
+  
+  .contact a {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+  
+  .btn-contact, .btn-download {
+    display: inline-block;
+    width: auto;
+    max-width: 150%;    
+    margin: 0.5rem auto;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-download, .btn-contact {
+    display: inline-block;
+    width: auto;
+    max-width: 150%;       
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+    background: linear-gradient(90deg, #1a1a1a, #444);
+    color: #fff;
+    border: none;
+  }
+  
+  .btn-contact {
+    display: inline-block;
+    width: auto;
+    max-width: 150%;    
+    background: #f4f4f4;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .btn-contact:hover, .btn-download:hover {
+    display: inline-block;
+    width: auto;
+    max-width: 150%;    
+    transform: scale(1.03);
+  }
+  
+  /* Responsive (Mobile-first approach) */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+  
+    .sidebar, .content {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    .photo {
+      width: 150px;
+      height: 150px;
+    }
+  
+    header h1 {
+      font-size: 1.8rem;
+    }
+  
+    .contact div {
+      margin: 0.5rem 0;
+      width: 150%;
+      text-align: center;
+    }
+  
+    .contact {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .btn-download, .btn-contact {
+      width: 80%;
+    }
+  }
+  

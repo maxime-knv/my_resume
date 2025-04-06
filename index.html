@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maxime Kournikov - Développeur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    // Fonction pour copier le texte dans le presse-papiers
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Texte copié dans le presse-papiers');
+      }).catch(err => {
+        console.error('Erreur lors de la copie du texte : ', err);
+      });
+    }
+
+    // Fonction pour rediriger vers un lien
+    function redirectTo(url) {
+      window.location.href = url;
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #f4f4f4 0%, #e0e0e0 100%);
+      color: #1a1a1a;
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      position: relative;
+      overflow: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar, .content {
+        width: 100%;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Fond animé */
+    .waves {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    .circle {
+      width: 150px;
+      height: 150px;
+      background: #e0e0e0;
+      border-radius: 50%;
+    }
+
+    .square {
+      width: 120px;
+      height: 120px;
+      background: #dcdcdc;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 100px solid #cccccc;
+    }
+
+    .shape1 { top: 10%; left: 5%; }
+    .shape2 { bottom: 20%; right: 10%; transform: rotate(30deg); }
+    .shape3 { top: 60%; left: 45%; }
+    .shape4 { top: 20%; right: 15%; }
+
+    .sidebar {
+      width: 50%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 1;
+      flex-direction: column;
+      padding: 2rem;
+      animation: fadeIn 1s ease-in-out;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar img.cv {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .content {
+      width: 50%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .photo {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .photo:hover {
+      transform: scale(1.05);
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin: 0.5rem 0;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 0;
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    .contact div {
+      text-align: left;
+      margin: 0.5rem 1rem;
+    }
+
+    .contact a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact a:hover {
+      color: #0073e6;
+      text-decoration: underline;
+    }
+
+    .btn-download {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0; /* Modifié pour avoir de l'espace au-dessus */
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #1a1a1a, #444);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn-download:hover {
+      background: linear-gradient(90deg, #333, #000);
+      transform: scale(1.03);
+    }
+
+    .btn-contact {
+      display: block;
+      width: fit-content;
+      margin: 0.5rem auto;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      background: #f4f4f4;
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-contact:hover {
+      background: #e0e0e0;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <!-- Shapes -->
+  <div class="shape circle shape1"></div>
+  <div class="shape square shape2"></div>
+  <div class="shape triangle shape3"></div>
+  <div class="shape circle shape4"></div>
+
+  <!-- Vaguelette animée avec couleurs adaptées -->
+  <svg class="waves" viewBox="0 0 1440 320"><path fill="#b0b0b0" fill-opacity="1" d="M0,64L60,96C120,128,240,192,360,213.3C480,235,600,213,720,181.3C840,149,960,107,1080,122.7C1200,139,1320,213,1380,250.7L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+
+  <!-- Sidebar CV -->
+  <div class="sidebar">
+    <img class="cv" src="my_resume.jpg" alt="Aperçu du CV de Maxime Kournikov">
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <img class="photo" src="photo_maxime.jpg" alt="Portrait de Maxime Kournikov">
+    <header>
+      <h1>Maxime Kournikov</h1>
+      <p>Développeur en formation</p>
+      <p>Recherche stage front-end · Juillet 2025 · 6 mois · Temps plein</p>
+    </header>
+
+    <div class="contact">
+      <!-- Téléphone -->
+      <div>
+        <p><strong>Téléphone :</strong></p>
+        <button class="btn-contact" onclick="copyText('+33 6 51 49 95 44')">+33 6 51 49 95 44</button>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <p><strong>Email :</strong></p>
+        <button class="btn-contact" onclick="copyText('maxime.kournikov.pro@gmail.com')">maxime.kournikov.pro@gmail.com</button>
+      </div>
+
+     <!-- LinkedIn -->
+     <div>
+        <p><strong>LinkedIn :</strong></p>
+        <button class="btn-contact" onclick="redirectTo('https://www.linkedin.com/in/maxime-kournikov/')">Voir Profil</button>
+      </div>
+    </div>
+
+    <div>
+        <p><strong>Github :</strong></p>
+        <button class="btn-contact" onclick="redirectTo('https://github.com/maxime-knv')">Voir Github</button>
+    </div>
+
+    <a class="btn-download" href="my_resume.jpg" download>Télécharger mon CV</a>
+  </div>
+</body>
+</html>

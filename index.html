@@ -2,10 +2,10 @@
 <html lang="fr">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        // Initialisation EmailJS
-        emailjs.init('BDXRTttf4tppfiQVc');
-    </script>
+<script>
+    // Initialisation EmailJS
+    emailjs.init('BDXRTttf4tppfiQVc');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio Professionnel</title>
@@ -32,7 +32,7 @@
         .skill-badge {
             display: inline-flex;
             align-items: center;
-            background-color: #2d3748;
+            background-color: #818cf8;
             border-radius: 9999px;
             padding: 0.25rem 0.75rem;
             font-size: 0.875rem;
@@ -132,6 +132,9 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-badge">Langage : C </span>
                             <span class="skill-badge">Individuel </span>
+                            <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Voir my_top <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -147,6 +150,9 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-badge">Langage : C </span>
                             <span class="skill-badge">En groupe <span class="project-count">5</span></span>
+                            <a href="https://github.com/maxime-knv/minishell_tcsh" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Voir minishell <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -162,14 +168,17 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="skill-badge"> Langage C </span>
                             <span class="skill-badge">En groupe <span class="project-count">2</span></span>
+                            <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Voir compilateur <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <a href="#" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
-                    Voir tous mes projets <i class="fas fa-arrow-right ml-2"></i>
+                <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Voir plus ... <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
@@ -441,102 +450,43 @@
             window.location.href = mailtoLink;
         });
     </script>
+Copy
     <script>
-        // Scroll fluide
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Configuration EmailJS
+        emailjs.init('BDXRTttf4tppfiQVc'); // User ID = Public Key
 
-        // Gestionnaire de formulaire unique
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const form = e.target;
-            const formData = new FormData(form);
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitIcon = document.getElementById('submitIcon');
-            const submitSpinner = document.getElementById('submitSpinner');
-            const formMessage = document.getElementById('formMessage');
+            const btn = document.getElementById('submitBtn');
+            const messageEl = document.getElementById('formMessage');
             
-            // Afficher le spinner
-            submitBtn.disabled = true;
-            submitText.textContent = 'Envoi en cours...';
-            submitIcon.classList.add('hidden');
-            submitSpinner.classList.remove('hidden');
-            formMessage.classList.add('hidden');
-            
-            // 1. Essayer Formspree
+            btn.disabled = true;
+            messageEl.textContent = 'Envoi en cours...';
+            messageEl.className = 'mt-4 text-center text-blue-500';
+            messageEl.classList.remove('hidden');
+
             try {
-                const formspreeResponse = await fetch('https://formspree.io/f/movebqdw', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (formspreeResponse.ok) {
-                    showSuccess("Message envoyé avec succès !");
-                    form.reset();
-                    return;
-                }
-                throw new Error(await formspreeResponse.text());
-            } catch (formspreeError) {
-                console.warn('Formspree error:', formspreeError);
-                
-                // 2. Fallback: EmailJS
-                try {
-                    await emailjs.sendForm(
-                        'service_ov1ycjl',
-                        'template_obk5yjc',
-                        form
-                    );
-                    showSuccess("Message envoyé avec succès !");
-                    form.reset();
-                } catch (emailJSError) {
-                    console.error('EmailJS error:', emailJSError);
-                    
-                    // 3. Fallback ultime: mailto
-                    const mailtoData = {
-                        subject: formData.get('subject'),
-                        body: `Nom: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\nMessage: ${formData.get('message')}`
-                    };
-                    showError("Redirection vers votre client email...");
-                    setTimeout(() => {
-                        window.location.href = `mailto:maxime.kournikov@epitech.eu?subject=${
-                            encodeURIComponent(mailtoData.subject)
-                        }&body=${
-                            encodeURIComponent(mailtoData.body)
-                        }`;
-                    }, 1500);
-                }
+                // Envoi direct avec EmailJS
+                const response = await emailjs.sendForm(
+                    'service_ov1ycjl', // Service ID
+                    'template_obk5yjc', // Template ID
+                    form
+                );
+
+                messageEl.textContent = '✅ Message envoyé avec succès !';
+                messageEl.className = 'mt-4 text-center text-green-500';
+                form.reset();
+
+            } catch (error) {
+                console.error('Erreur EmailJS:', error);
+                messageEl.innerHTML = `❌ Erreur d'envoi : ${error.text || 'Problème de connexion'}`;
+                messageEl.className = 'mt-4 text-center text-red-500';
             } finally {
-                submitBtn.disabled = false;
-                submitText.textContent = 'Envoyer le message';
-                submitIcon.classList.remove('hidden');
-                submitSpinner.classList.add('hidden');
+                btn.disabled = false;
             }
         });
-
-        function showSuccess(message) {
-            const el = document.getElementById('formMessage');
-            el.textContent = message;
-            el.classList.remove('hidden', 'text-red-500');
-            el.classList.add('text-green-500');
-        }
-
-        function showError(message) {
-            const el = document.getElementById('formMessage');
-            el.textContent = message;
-            el.classList.remove('hidden', 'text-green-500');
-            el.classList.add('text-red-500');
-        }
     </script>
-    </body>
-    </html>
+</body>
+</html>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialisation EmailJS
+        emailjs.init('BDXRTttf4tppfiQVc');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio Professionnel</title>
@@ -246,34 +251,38 @@
 
     <section id="contact" class="py-20 dark-bg">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-4">Contactez-moi</h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Disponible pour des opportunités de collaboration ou des questions.</p>
+            <!-- ... Votre en-tête existant ... -->
             
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Formulaire de contact -->
                 <div class="lg:w-1/2">
-                    <form action="https://formspree.io/f/mvovzjga" method="POST">
+                    <form id="contactForm" method="POST">
                         <!-- Champs de formulaire -->
-                        <div>
+                        <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nom complet</label>
-                            <input type="text" id="name" name="name" class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition" required>
+                            <input type="text" id="name" name="name" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
                         </div>
-                        <div>
+                        <div class="mb-4">
                             <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                            <input type="email" id="email" name="email" class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition" required>
+                            <input type="email" id="email" name="email" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
                         </div>
-                        <div>
+                        <div class="mb-4">
                             <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition" required>
+                            <input type="text" id="subject" name="subject" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
                         </div>
-                        <div>
+                        <div class="mb-6">
                             <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="5" class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition" required></textarea>
+                            <textarea id="message" name="message" rows="5" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition"></textarea>
                         </div>
-                        <button type="submit" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full">
-                            Envoyer le message <i class="fas fa-paper-plane ml-2"></i>
+                        <button type="submit" id="submitBtn" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full flex items-center justify-center">
+                            <span id="submitText">Envoyer le message</span>
+                            <i id="submitIcon" class="fas fa-paper-plane ml-2"></i>
+                            <span id="submitSpinner" class="hidden ml-2">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
                         </button>
-                    </form>                    
+                        <div id="formMessage" class="mt-4 text-center hidden"></div>
+                    </form>
                 </div>
     
                 <!-- Section CV -->
@@ -431,6 +440,103 @@
             const mailtoLink = `mailto:maxime.kournikov@epitech.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nom : " + name + "\nEmail : " + email + "\n\n" + message)}`;
             window.location.href = mailtoLink;
         });
+    </script>
+    <script>
+        // Scroll fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Gestionnaire de formulaire unique
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitIcon = document.getElementById('submitIcon');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Afficher le spinner
+            submitBtn.disabled = true;
+            submitText.textContent = 'Envoi en cours...';
+            submitIcon.classList.add('hidden');
+            submitSpinner.classList.remove('hidden');
+            formMessage.classList.add('hidden');
+            
+            // 1. Essayer Formspree
+            try {
+                const formspreeResponse = await fetch('https://formspree.io/f/movebqdw', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (formspreeResponse.ok) {
+                    showSuccess("Message envoyé avec succès !");
+                    form.reset();
+                    return;
+                }
+                throw new Error(await formspreeResponse.text());
+            } catch (formspreeError) {
+                console.warn('Formspree error:', formspreeError);
+                
+                // 2. Fallback: EmailJS
+                try {
+                    await emailjs.sendForm(
+                        'service_ov1ycjl',
+                        'template_obk5yjc',
+                        form
+                    );
+                    showSuccess("Message envoyé avec succès !");
+                    form.reset();
+                } catch (emailJSError) {
+                    console.error('EmailJS error:', emailJSError);
+                    
+                    // 3. Fallback ultime: mailto
+                    const mailtoData = {
+                        subject: formData.get('subject'),
+                        body: `Nom: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\nMessage: ${formData.get('message')}`
+                    };
+                    showError("Redirection vers votre client email...");
+                    setTimeout(() => {
+                        window.location.href = `mailto:maxime.kournikov@epitech.eu?subject=${
+                            encodeURIComponent(mailtoData.subject)
+                        }&body=${
+                            encodeURIComponent(mailtoData.body)
+                        }`;
+                    }, 1500);
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitText.textContent = 'Envoyer le message';
+                submitIcon.classList.remove('hidden');
+                submitSpinner.classList.add('hidden');
+            }
+        });
+
+        function showSuccess(message) {
+            const el = document.getElementById('formMessage');
+            el.textContent = message;
+            el.classList.remove('hidden', 'text-red-500');
+            el.classList.add('text-green-500');
+        }
+
+        function showError(message) {
+            const el = document.getElementById('formMessage');
+            el.textContent = message;
+            el.classList.remove('hidden', 'text-green-500');
+            el.classList.add('text-red-500');
+        }
     </script>
     </body>
     </html>

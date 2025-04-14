@@ -1,0 +1,17 @@
+.lang-menu {
+    transition: all 0.3s ease;
+    transform-origin: top right;
+}
+
+.lang-menu:hover .lang-dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lang-dropdown {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}

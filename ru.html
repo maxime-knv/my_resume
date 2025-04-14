@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ru">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -7,10 +7,11 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio Professionnel</title>
+    <title>Профессиональное Портфолио</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Сохраняем оригинальные стили */
         .gradient-bg { background: linear-gradient(135deg, #222564 0%, #691ce6 100%); }
         .dark-bg { background-color: #1a202c; }
         .message-box { transition: all 0.3s ease; border: 1px solid #4a5568; background-color: #2d3748; color: #e2e8f0; }
@@ -35,39 +36,39 @@
     </style>
 </head>
 <body class="font-sans">
-    <!-- Barre de navigation -->
+    <!-- Навигация -->
     <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold">MonPortfolio</div>
+                <div class="text-2xl font-bold">МоеПортфолио</div>
                 
                 <div class="flex items-center gap-6">
                     <nav class="hidden md:flex space-x-8">
-                        <a href="#accueil" class="hover:text-indigo-200 transition">Accueil</a>
-                        <a href="#projets" class="hover:text-indigo-200 transition">Projets</a>
-                        <a href="#competences" class="hover:text-indigo-200 transition">Compétences</a>
-                        <a href="#contact" class="hover:text-indigo-200 transition">Contact</a>
+                        <a href="#home" class="hover:text-indigo-200 transition">Главная</a>
+                        <a href="#projects" class="hover:text-indigo-200 transition">Проекты</a>
+                        <a href="#skills" class="hover:text-indigo-200 transition">Навыки</a>
+                        <a href="#contact" class="hover:text-indigo-200 transition">Контакты</a>
                     </nav>
 
-                    <!-- Sélecteur de langue -->
+                    <!-- Выбор языка -->
                     <div class="relative" id="language-switcher">
                         <button onclick="toggleLanguageMenu()" class="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg hover:bg-white/20 transition-all">
-                            <img src="assets/french_flag.png" alt="Français" class="w-6 h-4 object-cover rounded-sm">
-                            <span class="text-white">Français</span>
+                            <img src="assets/russian_flag.png" alt="Русский" class="w-6 h-4 object-cover rounded-sm">
+                            <span class="text-white">Русский</span>
                         </button>
 
                         <div id="language-menu" class="absolute right-0 mt-2 w-40 rounded-lg shadow-xl overflow-hidden origin-top-right opacity-0 scale-95 pointer-events-none transition-all border border-gray-600">
                             <div class="py-1 bg-gray-800" onmouseleave="hideLanguageMenu()">
-                                <a href="#" class="lang-item flex items-center px-4 py-3 gap-2 text-gray-300 hover:text-white">
-                                    <img src="assets/french_flag.png" alt="Français" class="w-6 h-4 object-cover rounded-sm">
+                                <a href="index.html" class="lang-item flex items-center px-4 py-3 gap-2 text-gray-300 hover:text-white">
+                                    <img src="assets/french_flag.png" alt="French" class="w-6 h-4 object-cover rounded-sm">
                                     <span>Français</span>
                                 </a>
                                 <a href="en.html" class="lang-item flex items-center px-4 py-3 gap-2 text-gray-300 hover:text-white">
                                     <img src="assets/english_flag.png" alt="English" class="w-6 h-4 object-cover rounded-sm">
                                     <span>English</span>
                                 </a>
-                                <a href="ru.html" class="lang-item flex items-center px-4 py-3 gap-2 text-gray-300 hover:text-white">
-                                    <img src="assets/russian_flag.png" alt="Русский" class="w-6 h-4 object-cover rounded-sm">
+                                <a href="#" class="lang-item flex items-center px-4 py-3 gap-2 text-gray-300 hover:text-white">
+                                    <img src="assets/russian_flag.png" alt="Russian" class="w-6 h-4 object-cover rounded-sm">
                                     <span>Русский</span>
                                 </a>
                             </div>
@@ -82,22 +83,22 @@
         </div>
     </header>
 
-    <!-- Section Accueil -->
-    <section id="accueil" class="gradient-bg text-white py-20">
+    <!-- Основная секция -->
+    <section id="home" class="gradient-bg text-white py-20">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Bonjour, je m'appelle <span class="text-indigo-200">Maxime Kournikov</span></h1>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Étudiant à EPITECH</h2>
-                <p class="text-lg mb-8 max-w-lg">Recherche Stage 2e année Front-end Juillet - Décembre 2025 (4-6 mois - Temps plein)</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Здравствуйте, я <span class="text-indigo-200">Максим Курников</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Студент EPITECH</h2>
+                <p class="text-lg mb-8 max-w-lg">Ищу стажировку Front-end разработчика (2 курс) Июль - Декабрь 2025 (4-6 месяцев, полный день)</p>
                 <div class="flex space-x-4">
-                    <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-indigo-100 transition">Me contacter</a>
-                    <a href="#projets" class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition">Voir mes projets</a>
+                    <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-indigo-100 transition">Связаться</a>
+                    <a href="#projects" class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition">Проекты</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative">
                     <div class="w-64 h-64 md:w-80 md:h-80 bg-indigo-100 rounded-full overflow-hidden shadow-xl">
-                        <img src="assets/maxime.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                        <img src="assets/maxime.jpg" alt="Фото профиля" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -bottom-5 -right-5 bg-white text-indigo-600 p-4 rounded-full shadow-lg">
                         <i class="fas fa-code text-3xl"></i>
@@ -107,9 +108,294 @@
         </div>
     </section>
 
-    <!-- Le reste des sections... -->
+    <!-- Секция проектов -->
+    <section id="projects" class="py-20 dark-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Последние проекты</h2>
+            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Мои наиболее значимые работы</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Проект 1 -->
+                <div class="card-bg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="h-72 bg-indigo-900 overflow-hidden">
+                        <img src="assets/top.png" alt="Проект 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">My_top</h3>
+                        <p class="text-gray-400 mb-4">Менеджер задач для терминала по аналогии с командой top</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Язык: C</span>
+                            <span class="skill-badge">Индивидуальный</span>
+                            <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Посмотреть <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Проект 2 -->
+                <div class="card-bg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="h-72 bg-indigo-900 overflow-hidden">
+                        <img src="assets/minishell.png" alt="Проект 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Minishell</h3>
+                        <p class="text-gray-400 mb-4">Реализация shell на основе tcsh с поддержкой pipe и истории команд</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Язык: C</span>
+                            <span class="skill-badge">Команда <span class="project-count">5</span></span>
+                            <a href="https://github.com/maxime-knv/minishell_tcsh" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Посмотреть <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Проект 3 -->
+                <div class="card-bg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="h-72 bg-indigo-900 overflow-hidden">
+                        <img src="assets/robot.png" alt="Проект 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Компилятор</h3>
+                        <p class="text-gray-400 mb-4">Преобразование redcode в бинарный код с функциями битовых сдвигов</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Язык: C</span>
+                            <span class="skill-badge">Команда <span class="project-count">2</span></span>
+                            <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Посмотреть <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Ещё проекты... <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Секция навыков -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Технические навыки</h2>
+            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Технологии и инструменты, которые я использую</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Навыки аналогичны предыдущим версиям -->
+                <!-- ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="py-20 dark-bg">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contactForm" method="POST">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Полное имя</label>
+                            <input type="text" id="name" name="name" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Тема</label>
+                            <input type="text" id="subject" name="subject" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Сообщение</label>
+                            <textarea id="message" name="message" rows="5" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full flex items-center justify-center">
+                            <span id="submitText">Отправить</span>
+                            <i id="submitIcon" class="fas fa-paper-plane ml-2"></i>
+                            <span id="submitSpinner" class="hidden ml-2">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                        <div id="formMessage" class="mt-4 text-center hidden"></div>
+                    </form>
+                </div>
+
+                <!-- Резюме -->
+                <div class="lg:w-1/2">
+                    <div class="contact-card p-8 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-center">Скачать резюме</h3>
+                        <div class="flex flex-col md:flex-row gap-8 items-center">
+                            <div class="md:w-1/2">
+                                <div class="cv-preview rounded-lg overflow-hidden flex items-center justify-center h-64">
+                                    <img src="assets/my_resume.jpg" alt="Резюме" class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="text-indigo-400 mr-3 mt-1">
+                                            <i class="fas fa-file-alt text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Формат JPG</h4>
+                                            <p class="text-sm text-gray-400">Оптимизированный документ</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-indigo-400 mr-3 mt-1">
+                                            <i class="fas fa-calendar-alt text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Обновлено</h4>
+                                            <p class="text-sm text-gray-400">14 апреля 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-indigo-400 mr-3 mt-1">
+                                            <i class="fas fa-info-circle text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Информация</h4>
+                                            <p class="text-sm text-gray-400">Полное описание навыков и опыта</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-8">
+                                    <a href="assets/my_resume.jpg" download="my_resume.jpg" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full block text-center">
+                                        <i class="fas fa-download mr-2"></i> Скачать
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Контактная информация -->
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="contact-card p-4 rounded-lg flex items-center">
+                            <div class="text-indigo-400 mr-4">
+                                <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-400">maxime.kournikov@epitech.eu</p>
+                            </div>
+                        </div>
+                        <div class="contact-card p-4 rounded-lg flex items-center">
+                            <div class="text-indigo-400 mr-4">
+                                <i class="fas fa-phone-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Телефон</h4>
+                                <p class="text-gray-400">+33 6 51 49 95 44</p>
+                            </div>
+                        </div>
+                        <div class="contact-card p-4 rounded-lg flex items-center">
+                            <div class="text-indigo-400 mr-4">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Локация</h4>
+                                <p class="text-gray-400">Париж, Франция</p>
+                            </div>
+                        </div>
+                        <div class="contact-card p-4 rounded-lg flex items-center">
+                            <div class="text-indigo-400 mr-4">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/maxime-kournikov" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+                                    Профиль <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold mb-2">МоеПортфолио</div>
+                    <p class="text-indigo-200">Увлеченный разработчик</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-indigo-200 transition">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/maxime-kournikov" class="text-white hover:text-indigo-200 transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-indigo-200 transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-indigo-400 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2024 МоеПортфолио. Все права защищены.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-indigo-200 hover:text-white transition">Правовая информация</a>
+                    <a href="#" class="text-indigo-200 hover:text-white transition">Конфиденциальность</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript с русским текстом -->
     <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Обработка формы
+        emailjs.init('BDXRTttf4tppfiQVc');
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const btn = document.getElementById('submitBtn');
+            const messageEl = document.getElementById('formMessage');
+            
+            btn.disabled = true;
+            messageEl.textContent = 'Отправка...';
+            messageEl.className = 'mt-4 text-center text-blue-500';
+            messageEl.classList.remove('hidden');
+
+            try {
+                const response = await emailjs.sendForm(
+                    'service_ov1ycjl',
+                    'template_obk5yjc',
+                    form
+                );
+
+                messageEl.textContent = '✅ Сообщение отправлено!';
+                messageEl.className = 'mt-4 text-center text-green-500';
+                form.reset();
+
+            } catch (error) {
+                console.error('Ошибка:', error);
+                messageEl.innerHTML = `❌ Ошибка отправки: ${error.text || 'Проблема с соединением'}`;
+                messageEl.className = 'mt-4 text-center text-red-500';
+            } finally {
+                btn.disabled = false;
+            }
+        });
+
+        // Логика меню языка
         function toggleLanguageMenu() {
             const menu = document.getElementById('language-menu');
             const isHidden = menu.classList.contains('opacity-0');
@@ -132,383 +418,6 @@
             const switcher = document.getElementById('language-switcher');
             if (!switcher.contains(e.target)) {
                 hideLanguageMenu();
-            }
-        });
-    </script>
-</body>
-</html>
-
-    <!-- Section Projets -->
-    <section id="projets" class="py-20 dark-bg">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-4">Mes Projets Récents</h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Voici un liste de mes projets les plus marquants réalisés !</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projet 1 -->
-                <div class="card-bg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
-                    <div class="h-72 bg-indigo-900 overflow-hidden">
-                        <img src="assets/top.png" alt="Projet 1" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">My_top</h3>
-                        <p class="text-gray-400 mb-4">Affichage d’un gestionnaire de tâches dans le terminal, prenant comme inspiration la commande top.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge">Langage : C </span>
-                            <span class="skill-badge">Individuel </span>
-                            <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
-                                Voir my_top <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Projet 2 -->
-                <div class="card-bg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
-                    <div class="h-72 bg-indigo-900 overflow-hidden">
-                        <img src="assets/minishell.png" alt="Projet 2" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Minishell</h3>
-                        <p class="text-gray-400 mb-4">Réplique d’un shell basé sur tcsh. Intégration des commandes basiques mais aussi des pipes, redirections, autocomplétion, historique et alias</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge">Langage : C </span>
-                            <span class="skill-badge">En groupe <span class="project-count">5</span></span>
-                            <a href="https://github.com/maxime-knv/minishell_tcsh" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
-                                Voir minishell <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Projet 3 -->
-                <div class="card-bg rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
-                    <div class="h-72 bg-indigo-900 overflow-hidden">
-                        <img src="assets/robot.png" alt="Projet 3" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Compilateur</h3>
-                        <p class="text-gray-400 mb-4">Transformation de redcode vers code binaire, stoqué dans un fichier.
-                            intergration de fonction de bitshifting.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge"> Langage C </span>
-                            <span class="skill-badge">En groupe <span class="project-count">2</span></span>
-                            <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
-                                Voir compilateur <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://github.com/maxime-knv?tab=repositories" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
-                    Voir plus ... <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="competences" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-4">Mes Compétences</h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Technologies et outils que j'utilise au quotidien.</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="card-bg p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-indigo-400 text-4xl mb-4">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Git</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="skill-badge">Projets <span class="project-count">15</span></span>
-                    </div>
-                </div>
-                
-                <!-- Compétence 2 - Docker -->
-                <div class="card-bg p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-indigo-400 text-4xl mb-4">
-                        <i class="fab fa-docker"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Docker</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="skill-badge">Projets <span class="project-count">3</span></span>
-                    </div>
-                </div>
-                
-                <!-- Compétence 3 - Python -->
-                <div class="card-bg p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-indigo-400 text-4xl mb-4">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Python</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="skill-badge">Projets <span class="project-count">10</span></span>
-                    </div>
-                </div>
-                
-                <!-- Compétence 4 - VSCode -->
-                <div class="card-bg p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-indigo-400 text-4xl mb-4">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">VS Code</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="skill-badge">Projets <span class="project-count">40</span></span>
-                    </div>
-                </div>
-                
-                <!-- Compétence 5 - Notion -->
-                <div class="card-bg p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-indigo-400 text-4xl mb-4">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Notion</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="skill-badge">Projets <span class="project-count">20</span></span>
-                    </div>
-                </div>
-                
-                <!-- Compétence 6 - C -->
-                <div class="card-bg p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                    <div class="text-indigo-400 text-4xl mb-4">
-                        <i class="fas fa-copyright"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Langage C</h3>
-                    <div class="flex justify-between items-center">
-                        <span class="skill-badge">Projets <span class="project-count">15</span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 dark-bg">
-        <div class="container mx-auto px-6">
-            <!-- ... Votre en-tête existant ... -->
-            
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Formulaire de contact -->
-                <div class="lg:w-1/2">
-                    <form id="contactForm" method="POST">
-                        <!-- Champs de formulaire -->
-                        <div class="mb-4">
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nom complet</label>
-                            <input type="text" id="name" name="name" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                            <input type="email" id="email" name="email" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
-                        </div>
-                        <div class="mb-4">
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Sujet</label>
-                            <input type="text" id="subject" name="subject" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition"></textarea>
-                        </div>
-                        <button type="submit" id="submitBtn" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full flex items-center justify-center">
-                            <span id="submitText">Envoyer le message</span>
-                            <i id="submitIcon" class="fas fa-paper-plane ml-2"></i>
-                            <span id="submitSpinner" class="hidden ml-2">
-                                <i class="fas fa-spinner fa-spin"></i>
-                            </span>
-                        </button>
-                        <div id="formMessage" class="mt-4 text-center hidden"></div>
-                    </form>
-                </div>
-    
-                <!-- Section CV -->
-                <div class="lg:w-1/2">
-                    <div class="contact-card p-8 rounded-xl shadow-md">
-                        <h3 class="text-2xl font-bold mb-6 text-center">Téléchargez mon CV ici :)</h3>
-                        <div class="flex flex-col md:flex-row gap-8 items-center">
-                            <div class="md:w-1/2">
-                                <div class="cv-preview rounded-lg overflow-hidden flex items-center justify-center h-64">
-                                    <img src="assets/my_resume.jpg" alt="Preview CV" class="w-full h-full object-contain">
-                                </div>
-                            </div>
-                            <div class="md:w-1/2">
-                                <div class="space-y-4">
-                                    <div class="flex items-start">
-                                        <div class="text-indigo-400 mr-3 mt-1">
-                                            <i class="fas fa-file-alt text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold">Format JPG</h4>
-                                            <p class="text-sm text-gray-400">Document professionnel optimisé</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <div class="text-indigo-400 mr-3 mt-1">
-                                            <i class="fas fa-calendar-alt text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold">Mis à jour</h4>
-                                            <p class="text-sm text-gray-400">14 avril 2024</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <div class="text-indigo-400 mr-3 mt-1">
-                                            <i class="fas fa-info-circle text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold">Informations</h4>
-                                            <p class="text-sm text-gray-400">Toutes mes compétences et expériences en détail</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-8">
-                                    <a href="assets/my_resume.jpg" download="my_resume.jpg" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full block text-center">
-                                        <i class="fas fa-download mr-2"></i> Télécharger mon CV
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Coordonnées -->
-                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="contact-card p-4 rounded-lg flex items-center">
-                            <div class="text-indigo-400 mr-4">
-                                <i class="fas fa-envelope text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Email</h4>
-                                <p class="text-gray-400">maxime.kournikov@epitech.eu</p>
-                            </div>
-                        </div>
-                        <div class="contact-card p-4 rounded-lg flex items-center">
-                            <div class="text-indigo-400 mr-4">
-                                <i class="fas fa-phone-alt text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Téléphone</h4>
-                                <p class="text-gray-400">+33 6 51 49 95 44</p>
-                            </div>
-                        </div>
-                        <div class="contact-card p-4 rounded-lg flex items-center">
-                            <div class="text-indigo-400 mr-4">
-                                <i class="fas fa-map-marker-alt text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Localisation</h4>
-                                <p class="text-gray-400">Paris, France</p>
-                            </div>
-                        </div>
-                        <div class="contact-card p-4 rounded-lg flex items-center">
-                            <div class="text-indigo-400 mr-4">
-                                <i class="fab fa-linkedin text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">LinkedIn</h4>
-                                <a href="https://linkedin.com/in/maxime-kournikov" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
-                                    Lien LinkedIn <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pied de page -->
-    <footer class="gradient-bg text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="text-2xl font-bold mb-2">MonPortfolio</div>
-                    <p class="text-indigo-200">Jeune Développeur Passionné</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-white hover:text-indigo-200 transition">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/maxime-kournikov" class="text-white hover:text-indigo-200 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-white hover:text-indigo-200 transition">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-indigo-400 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p>&copy; 2024 MonPortfolio. Tous droits réservés.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-indigo-200 hover:text-white transition">Mentions légales</a>
-                    <a href="#" class="text-indigo-200 hover:text-white transition">Politique de confidentialité</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- JS scripts -->
-    <script>
-        // Scroll fluide
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    
-        // Menu mobile (à compléter si nécessaire)
-        const mobileMenuButton = document.querySelector('.md:hidden');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', function() {
-                alert('Menu mobile à implémenter');
-            });
-        }
-    
-        // Gestion du bouton Envoyer via mailto:
-        document.querySelector("form").addEventListener("submit", function(e) {
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const subject = document.getElementById("subject").value;
-            const message = document.getElementById("message").value;
-    
-            const mailtoLink = `mailto:maxime.kournikov@epitech.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nom : " + name + "\nEmail : " + email + "\n\n" + message)}`;
-            window.location.href = mailtoLink;
-        });
-    </script>
-    <script>
-        // Configuration EmailJS
-        emailjs.init('BDXRTttf4tppfiQVc'); // User ID = Public Key
-
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const form = e.target;
-            const btn = document.getElementById('submitBtn');
-            const messageEl = document.getElementById('formMessage');
-            
-            btn.disabled = true;
-            messageEl.textContent = 'Envoi en cours...';
-            messageEl.className = 'mt-4 text-center text-blue-500';
-            messageEl.classList.remove('hidden');
-
-            try {
-                // Envoi direct avec EmailJS
-                const response = await emailjs.sendForm(
-                    'service_ov1ycjl', // Service ID
-                    'template_obk5yjc', // Template ID
-                    form
-                );
-
-                messageEl.textContent = '✅ Message envoyé avec succès !';
-                messageEl.className = 'mt-4 text-center text-green-500';
-                form.reset();
-
-            } catch (error) {
-                console.error('Erreur EmailJS:', error);
-                messageEl.innerHTML = `❌ Erreur d'envoi : ${error.text || 'Problème de connexion'}`;
-                messageEl.className = 'mt-4 text-center text-red-500';
-            } finally {
-                btn.disabled = false;
             }
         });
     </script>

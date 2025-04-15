@@ -87,7 +87,7 @@
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Bonjour, je m'appelle <span class="text-indigo-200">Maxime Kournikov</span></h1>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Étudiant à EPITECH</h2>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Étudiant à {EPITECH}</h2>
                 <p class="text-lg mb-8 max-w-lg">Recherche Stage 2e année Front-end Juillet - Décembre 2025 (4-6 mois - Temps plein)</p>
                 <div class="flex space-x-4">
                     <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-indigo-100 transition">Me contacter</a>
@@ -290,34 +290,38 @@
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Formulaire de contact -->
                 <div class="lg:w-1/2">
-                    <form id="contactForm" method="POST">
-                        <!-- Champs de formulaire -->
-                        <div class="mb-4">
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nom complet</label>
-                            <input type="text" id="name" name="name" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                            <input type="email" id="email" name="email" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
-                        </div>
-                        <div class="mb-4">
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Sujet</label>
-                            <input type="text" id="subject" name="subject" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition"></textarea>
-                        </div>
-                        <button type="submit" id="submitBtn" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full flex items-center justify-center">
-                            <span id="submitText">Envoyer le message</span>
-                            <i id="submitIcon" class="fas fa-paper-plane ml-2"></i>
-                            <span id="submitSpinner" class="hidden ml-2">
-                                <i class="fas fa-spinner fa-spin"></i>
-                            </span>
-                        </button>
-                        <div id="formMessage" class="mt-4 text-center hidden"></div>
-                    </form>
-                </div>
+                    <div class="contact-card p-8 rounded-xl shadow-md">
+                        <form id="contactForm" method="POST">
+                            <!-- Champs de formulaire -->
+                            <h3 class="text-2xl font-bold mb-6 text-center">Contactez moi ici</h3>
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nom complet</label>
+                                <input type="text" id="name" name="name" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Sujet</label>
+                                <input type="text" id="subject" name="subject" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="message-box w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 transition"></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full flex items-center justify-center">
+                                <span id="submitText">Envoyer le message</span>
+                                <i id="submitIcon" class="fas fa-paper-plane ml-2"></i>
+                                <span id="submitSpinner" class="hidden ml-2">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+                            <div id="formMessage" class="mt-4 text-center hidden"></div>
+                
+                        </form>
+                    </div>        
+            </div>
     
                 <!-- Section CV -->
                 <div class="lg:w-1/2">
@@ -423,14 +427,11 @@
                     <p class="text-indigo-200">Jeune Développeur Passionné</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-white hover:text-indigo-200 transition">
+                    <a href="https://github.com/maxime-knv?tab=repositories" class="text-white hover:text-indigo-200 transition">
                         <i class="fab fa-github text-2xl"></i>
                     </a>
                     <a href="https://linkedin.com/in/maxime-kournikov" class="text-white hover:text-indigo-200 transition">
                         <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-white hover:text-indigo-200 transition">
-                        <i class="fab fa-instagram text-2xl"></i>
                     </a>
                 </div>
             </div>
@@ -456,7 +457,6 @@
             });
         });
     
-        // Menu mobile (à compléter si nécessaire)
         const mobileMenuButton = document.querySelector('.md:hidden');
         if (mobileMenuButton) {
             mobileMenuButton.addEventListener('click', function() {
@@ -464,20 +464,17 @@
             });
         }
     
-        // Gestion du bouton Envoyer via mailto:
         document.querySelector("form").addEventListener("submit", function(e) {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const subject = document.getElementById("subject").value;
             const message = document.getElementById("message").value;
-    
             const mailtoLink = `mailto:maxime.kournikov@epitech.eu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nom : " + name + "\nEmail : " + email + "\n\n" + message)}`;
             window.location.href = mailtoLink;
         });
     </script>
     <script>
-        // Configuration EmailJS
-        emailjs.init('BDXRTttf4tppfiQVc'); // User ID = Public Key
+        emailjs.init('BDXRTttf4tppfiQVc');
 
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -492,10 +489,9 @@
             messageEl.classList.remove('hidden');
 
             try {
-                // Envoi direct avec EmailJS
                 const response = await emailjs.sendForm(
-                    'service_ov1ycjl', // Service ID
-                    'template_obk5yjc', // Template ID
+                    'service_ov1ycjl',
+                    'template_obk5yjc',
                     form
                 );
 
